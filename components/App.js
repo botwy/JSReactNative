@@ -31,12 +31,15 @@ const style = StyleSheet.create({
 
 },
     game: {
-    flexDirection: 'row',
+    flex: 1,
 },
 
    gameInfo: {
     marginTop: 20,
 },
+    gameInfoText: {
+        textAlign: "center",
+    },
     boardRow: {
         flexDirection: 'row',
 }
@@ -154,15 +157,16 @@ class App extends Component {
           status = "Сейчас играет: " + (this.state.NextPlayer === 1 ? "X" : "O");
           return (
               <View style={style.game}>
+                  <View style={style.gameInfo}>
+                      <View><Text style={style.gameInfoText}>{status}</Text></View>
+                  </View>
                   <View>
                       <Board
                           squares={curr_squares}
                           onClick={i => this.clickHandle(i)}
                       />
                   </View>
-                  <View style={style.gameInfo}>
-                      <View><Text>{status}</Text></View>
-                  </View>
+
               </View>
           );
       }
